@@ -34,11 +34,10 @@ namespace XTools.EditorTools
                     }
 
                     int index = GetNumIndex(childs[0].name);
-                    int length = childs[0].name.Length-index;
                     //纯数字排序
                     //var newChilds = childs.OrderBy(t => int.Parse(t.name)).ToList();
                     //排除字母留下编号排序
-                    var newChilds = childs.OrderBy(t => int.Parse(t.name.Substring(index,length))).ToList();
+                    var newChilds = childs.OrderBy(t => int.Parse(t.name.Substring(index,t.name.Length -index))).ToList();
                     List<string> orderStr = new List<string>();
                     for (int j = 0; j < newChilds.Count; j++)
                     {
@@ -67,8 +66,8 @@ namespace XTools.EditorTools
                 {
                     List<string> orderStr = new List<string>();
                     int index = GetNumIndex(selectObjs[0].name);
-                    int length = selectObjs[0].name.Length-index;
-                    var newSelectObjs = selectObjs.OrderBy(t => int.Parse(t.name.Substring(index,length))).ToList();
+                    var newSelectObjs = selectObjs.OrderBy(t => int.Parse(t.name.Substring(index,t.name.Length-index)))
+                        .ToList();
                     for (int k = 0; k < newSelectObjs.Count; k++)
                     {
                         string childName = newSelectObjs[k].name;
@@ -89,7 +88,7 @@ namespace XTools.EditorTools
 
         /// <summary>
         /// 名称靠前的字母个数
-        /// 排除字母的影响
+        /// 排除字母的影响,要求所有名字中字母长度一致
         /// </summary>
         /// <param name="nameStr"></param>
         /// <returns></returns>
