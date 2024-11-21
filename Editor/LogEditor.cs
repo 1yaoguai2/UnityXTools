@@ -13,8 +13,7 @@ public class LogEditor
             instance = new LogEditor();
         return instance;
     }
-    //private const string DEBUGERFILEPATH = "Assets/xtools/Runtime/Log/LogManager.cs"; //替换成你自己的封装类地址
-    private const string DEBUGERFILEPATH = "Packages/xtools/Runtime/Log/LogManager.cs"; //替换成你自己的封装类地址
+    private const string DEBUGERFILEPATH = "Assets/xtools/Runtime/Log/LogManager.cs"; //替换成你自己的封装类地址
     private int m_DebugerFileInstanceId;
     private Type m_ConsoleWindowType = null;
     private FieldInfo m_ActiveTextInfo;
